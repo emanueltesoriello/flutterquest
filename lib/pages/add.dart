@@ -36,7 +36,7 @@ class _AddPageState extends State<AddPage> {
       appBar: AppBar(
         title: Text('Flutter Quest'),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      bottomNavigationBar: CustomBottomNavigationBar('add'),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(20.0),

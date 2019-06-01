@@ -36,7 +36,7 @@ class _UserPageState extends State<UserPage> {
       appBar: AppBar(
         title: Text('Flutter Quest'),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      bottomNavigationBar: CustomBottomNavigationBar('user'),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(20.0),

@@ -23,6 +23,8 @@ class _AuthPageState extends State<AuthPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordTextController = TextEditingController();
   AuthMode _authMode = AuthMode.Login;
+  double targetWidth;
+  double targetHeight;
 
   ScopedModelDescendant _buildScopedModelDescendant() {
     return ScopedModelDescendant<MainModel>(
@@ -181,8 +183,10 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-    final double deviceWidth = MediaQuery.of(context).size.width;
-    final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
+     final double deviceWidth = MediaQuery.of(context).size.width;
+    final double deviceHeight = MediaQuery.of(context).size.height;
+    targetWidth = deviceWidth; //> 550.0 ? 500.0 : deviceWidth * 0.9;
+    targetHeight = deviceHeight;
     return Scaffold(
       /*appBar: AppBar(
         title: Text('Login'),

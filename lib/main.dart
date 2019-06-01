@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
 // import 'package:flutter/rendering.dart';
 
@@ -14,7 +15,10 @@ void main() {
   // debugPaintSizeEnabled = true;
   // debugPaintBaselinesEnabled = true;
   // debugPaintPointersEnabled = true;
-  runApp(MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(new MyApp());
+    });
 }
 
 class MyApp extends StatefulWidget {
@@ -47,7 +51,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         // debugShowMaterialGrid: true,
         theme: ThemeData(
-            brightness: Brightness.dark,
+            brightness: Brightness.light,
             primarySwatch: Colors.blue,
             accentColor: Colors.deepPurple,
             buttonColor: Colors.deepPurple),
