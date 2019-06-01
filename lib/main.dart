@@ -9,6 +9,7 @@ import './pages/home.dart';
 import './pages/user.dart';
 import './pages/add.dart';
 import './pages/game.dart';
+import './pages/check.dart';
 import './scoped-models/main.dart';
 
 void main() {
@@ -53,8 +54,8 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
             brightness: Brightness.light,
             primarySwatch: Colors.blue,
-            accentColor: Colors.deepPurple,
-            buttonColor: Colors.deepPurple),
+            accentColor: Colors.blueAccent,
+            buttonColor: Colors.blueAccent),
         // home: AuthPage(),
         routes: {
           '/': (BuildContext context) =>
@@ -78,6 +79,11 @@ class _MyAppState extends State<MyApp> {
           if (pathElements[1] == 'add') {
             return MaterialPageRoute<bool>(
               builder: (BuildContext context) => AddPage(),
+            );
+          }
+          if (pathElements[1] == 'check') {
+            return MaterialPageRoute<bool>(
+              builder: (BuildContext context) => CheckPage(),
             );
           }
           if (pathElements[1] == 'game') {

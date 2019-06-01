@@ -43,7 +43,7 @@ class _AuthPageState extends State<AuthPage> {
 
   ThemeData _buildThemeData() {
     return ThemeData(
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: TextStyle(color: Colors.white, fontSize: 20.0),
       ),
@@ -65,7 +65,11 @@ class _AuthPageState extends State<AuthPage> {
 
   Widget _buildNameTextField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Name', filled: true),
+      decoration: InputDecoration(
+          labelStyle: TextStyle(color: Colors.black),
+          labelText: 'Name',
+          filled: true,
+          fillColor: Color.fromRGBO(254, 254, 252, 1)),
       keyboardType: TextInputType.text,
       validator: (String value) {
         if (value.isEmpty || value.length > 20) {
@@ -80,7 +84,11 @@ class _AuthPageState extends State<AuthPage> {
 
   Widget _buildSurnameTextField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Surname', filled: true),
+      decoration: InputDecoration(
+          labelStyle: TextStyle(color: Colors.black),
+          labelText: 'Surname',
+          filled: true,
+          fillColor: Color.fromRGBO(254, 254, 252, 1)),
       keyboardType: TextInputType.text,
       validator: (String value) {
         if (value.isEmpty || value.length > 20) {
@@ -95,7 +103,11 @@ class _AuthPageState extends State<AuthPage> {
 
   Widget _buildEmailTextField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'E-Mail', filled: true),
+      decoration: InputDecoration(
+          labelStyle: TextStyle(color: Colors.black),
+          labelText: 'E-Mail',
+          filled: true,
+          fillColor: Color.fromRGBO(254, 254, 252, 1)),
       keyboardType: TextInputType.emailAddress,
       validator: (String value) {
         if (value.isEmpty ||
@@ -112,7 +124,11 @@ class _AuthPageState extends State<AuthPage> {
 
   Widget _buildPasswordTextField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Password', filled: true),
+      decoration: InputDecoration(
+          labelStyle: TextStyle(color: Colors.black),
+          labelText: 'Password',
+          filled: true,
+          fillColor: Color.fromRGBO(254, 254, 252, 1)),
       obscureText: true,
       controller: _passwordTextController,
       validator: (String value) {
@@ -128,7 +144,11 @@ class _AuthPageState extends State<AuthPage> {
 
   Widget _buildPasswordConfirmTextField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Confirm Password', filled: true),
+      decoration: InputDecoration(
+          labelStyle: TextStyle(color: Colors.black),
+          labelText: 'Password',
+          filled: true,
+          fillColor: Color.fromRGBO(254, 254, 252, 1)),
       obscureText: true,
       validator: (String value) {
         if (_passwordTextController.text != value) {
@@ -183,22 +203,13 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-     final double deviceWidth = MediaQuery.of(context).size.width;
+    final double deviceWidth = MediaQuery.of(context).size.width;
     final double deviceHeight = MediaQuery.of(context).size.height;
-    targetWidth = deviceWidth; //> 550.0 ? 500.0 : deviceWidth * 0.9;
+    targetWidth = deviceWidth; 
     targetHeight = deviceHeight;
     return Scaffold(
-      /*appBar: AppBar(
-        title: Text('Login'),
-      ),*/
-      backgroundColor: Colors.grey,
+      backgroundColor: Color.fromRGBO(240, 135, 0, 1),
       body: Stack(fit: StackFit.expand, children: <Widget>[
-        Image(
-          image: AssetImage("assets/background.jpg"),
-          fit: BoxFit.cover,
-          colorBlendMode: BlendMode.darken,
-          color: Colors.black54,
-        ),
         Theme(
           data: _buildThemeData(),
           isMaterialAppTheme: true,
@@ -213,11 +224,14 @@ class _AuthPageState extends State<AuthPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(
-                      height: 50.0,
-                    ),
-                    FlutterLogo(
-                      size: 90.0,
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: (targetHeight / 25),
+                      ),
+                      child: Image(
+                        image: AssetImage("assets/logo.png"),
+                        height: targetHeight / 6,
+                      ),
                     ),
                     _authMode == AuthMode.Signup
                         ? SizedBox(
@@ -255,7 +269,7 @@ class _AuthPageState extends State<AuthPage> {
                     ),
                     _buildFlatButton(),
                     SizedBox(
-                      height: 80.0,
+                      height: targetWidth/25,
                     ),
                     _buildScopedModelDescendant(),
                   ],

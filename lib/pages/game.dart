@@ -10,77 +10,128 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
+  double targetWidth;
+  double targetHeight;
+
+  Widget _buildText(double deviceWidth) {
+    return Container(
+      padding: EdgeInsets.only(right: deviceWidth / 25, left: deviceWidth / 25),
+      child: Center(
+        child: Text(
+          '''What type of Widgets 
+are created for Static type?''',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 22,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double deviceWidth = MediaQuery.of(context).size.width;
+    final double deviceHeight = MediaQuery.of(context).size.height;
+    targetWidth = deviceWidth; //> 550.0 ? 500.0 : deviceWidth * 0.9;
+    targetHeight = deviceHeight;
     return Scaffold(
+      backgroundColor: Color.fromRGBO(84, 197, 248, 1),
       appBar: AppBar(
-        title: Text('Game Time!'),
+        backgroundColor: Color.fromRGBO(240, 135, 0, 1),
+        title: Text('Questions'),
       ),
       body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(bottom: 20.0),
-                child: Text(
-                  'How many constructors you can have in Flutter?',
-                  style: TextStyle(fontSize: 22),
-                ),
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: targetWidth / 15,
+            ),
+            _buildText(deviceWidth),
+            SizedBox(
+              height: targetWidth / 5,
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                  left: deviceWidth / 10,
+                  top: deviceWidth / 14,
+                  right: deviceWidth / 10,
+                  bottom: deviceWidth / 14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(Radius.circular(22)),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20.0),
-                child: RaisedButton(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: Text('Only one',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                      )),
-                  colorBrightness: Brightness.dark,
-                  onPressed: () {
-                    print('Answer 1');
-                  },
-                  color: Colors.blue,
-                ),
+              child: Text(
+                'Stateless widgets',
+                style: TextStyle(fontSize: 18),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20.0),
-                child: RaisedButton(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: Text(
-                      'As many as you want, just override it with new parameters.',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                      )),
-                  colorBrightness: Brightness.dark,
-                  onPressed: () {
-                    print('Answer 1');
-                  },
-                  color: Colors.blue,
-                ),
+            ),
+            SizedBox(
+              height: targetWidth / 10,
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                  left: deviceWidth / 10,
+                  top: deviceWidth / 14,
+                  right: deviceWidth / 10,
+                  bottom: deviceWidth / 14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(Radius.circular(22)),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20.0),
-                child: RaisedButton(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: Text('As many as you want, using factory keyword.',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                      )),
-                  colorBrightness: Brightness.dark,
-                  onPressed: () {
-                    print('Answer 1');
-                  },
-                  color: Colors.blue,
-                ),
+              child: Text(
+                'Hopeless widgets',
+                style: TextStyle(fontSize: 18),
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: targetWidth / 10,
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                  left: deviceWidth / 10,
+                  top: deviceWidth / 14,
+                  right: deviceWidth / 10,
+                  bottom: deviceWidth / 14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(Radius.circular(22)),
+              ),
+              child: Text(
+                'Stateful widgets',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+            SizedBox(
+              height: targetWidth / 10,
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                  left: deviceWidth / 10,
+                  top: deviceWidth / 14,
+                  right: deviceWidth / 10,
+                  bottom: deviceWidth / 14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: new BorderRadius.all(Radius.circular(22)),
+              ),
+              child: Text(
+                'Hopefull widgets',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+            SizedBox(
+              height: targetWidth / 10,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromRGBO(240, 135, 0, 1),
+        onPressed: () {},
+        tooltip: 'Next question',
+        child: Icon(
+          Icons.arrow_forward_ios,
         ),
       ),
     );

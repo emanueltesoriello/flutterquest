@@ -32,6 +32,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(
+                Icons.thumbs_up_down,
+              ),
+              onPressed: () => Navigator.pushNamed<bool>(context, '/check'),
+              color: pageName == 'check' ? Colors.black : Colors.white,
+            ),
+            IconButton(
+              icon: Icon(
                 Icons.person,
               ),
               onPressed: () => Navigator.pushNamed<bool>(context, '/user'),

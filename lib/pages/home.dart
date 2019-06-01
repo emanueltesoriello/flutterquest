@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                     'PLAY',
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed<bool>(context, '/game'),
                   shape: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.transparent),
                     borderRadius: BorderRadius.all(Radius.circular(
@@ -99,26 +99,27 @@ Now you can test your Flutter proficiency with hundreds of community created que
     targetHeight = deviceHeight;
     return Scaffold(
       drawer: _buildSideDrawer(context),
-      appBar: AppBar(
-        title: Text('Flutter Quest'),
-      ),
       bottomNavigationBar: CustomBottomNavigationBar('home'),
       body: Container(
         child: Center(
           child: Column(
             children: <Widget>[
+              SizedBox(
+                height: targetWidth / 20,
+              ),
               _buildLogo(),
               SizedBox(
                 height: targetHeight / 10,
               ),
               _buildText(deviceWidth),
               SizedBox(
-                height: deviceWidth / 10,
+                height: deviceWidth / 5,
               ),
               _buildPlayButton(),
             ],
           ),
         ),
-      ),);
+      ),
+    );
   }
 }
