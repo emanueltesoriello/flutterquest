@@ -7,6 +7,7 @@ import './pages/auth.dart';
 import './pages/home.dart';
 import './pages/user.dart';
 import './pages/add.dart';
+import './pages/game.dart';
 import './scoped-models/main.dart';
 
 void main() {
@@ -73,6 +74,11 @@ class _MyAppState extends State<MyApp> {
           if (pathElements[1] == 'add') {
             return MaterialPageRoute<bool>(
               builder: (BuildContext context) => AddPage(),
+            );
+          }
+          if (pathElements[1] == 'game') {
+            return MaterialPageRoute<bool>(
+              builder: (BuildContext context) => GamePage(),
             );
           }
           if (pathElements[1] == 'user') {

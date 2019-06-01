@@ -43,20 +43,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Flutter Quest'),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(),/*BottomNavigationBar(
-        currentIndex: 0, // this will be set when a new tab is tapped
-        items: [
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.games),
-            title: new Text('Play'),
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.add),
-            title: new Text('Contribute'),
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('You'))
-        ],
-      ),*/
+      bottomNavigationBar: CustomBottomNavigationBar(),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(20.0),
@@ -75,7 +62,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => Navigator.pushNamed<bool>(context, '/game'),//_incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
