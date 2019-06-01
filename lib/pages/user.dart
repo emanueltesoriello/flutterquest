@@ -54,7 +54,7 @@ class _UserPageState extends State<UserPage> {
         //color: Color.fromRGBO(35, 100, 170, 1),
         color: Color.fromRGBO(250, 150, 85, 1), // orange
         textColor: Colors.white,
-        child: Text('Il tuo profilo'),
+        child: Text('Your profile'),
         onPressed: () => {},
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(90.0),
