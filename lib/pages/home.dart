@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import '../ui-elements/logout_list_tile.dart';
+import '../ui-elements/custom_bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,7 +13,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Widget _buildSideDrawer(BuildContext context) {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+    Widget _buildSideDrawer(BuildContext context) {
     return Drawer(
       child: Column(
         children: <Widget>[
@@ -30,26 +39,46 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: _buildSideDrawer(context),
-        appBar: AppBar(
-          centerTitle: true,
-          elevation: 1.0,
-          leading: Icon(Icons.camera_alt),
-          title: SizedBox(
-            height: 35.0,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Moments',
-                style: TextStyle(
-                  fontSize: 25,
-                ),
+      drawer: _buildSideDrawer(context),
+      appBar: AppBar(
+        title: Text('Flutter Quest'),
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(),/*BottomNavigationBar(
+        currentIndex: 0, // this will be set when a new tab is tapped
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.games),
+            title: new Text('Play'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.add),
+            title: new Text('Contribute'),
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('You'))
+        ],
+      ),*/
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                '''With FlutterQuest you can test your knowledge of Flutter with hundreds of community created questions.
+                Press the button to 
+                ''',
+                style: TextStyle(fontSize: 22),
               ),
-            ),
+            ],
           ),
         ),
-        body: Center(
-          child: Text('Home Sweet Home'),
-        ));
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }

@@ -5,6 +5,8 @@ import 'package:scoped_model/scoped_model.dart';
 
 import './pages/auth.dart';
 import './pages/home.dart';
+import './pages/user.dart';
+import './pages/add.dart';
 import './scoped-models/main.dart';
 
 void main() {
@@ -66,6 +68,16 @@ class _MyAppState extends State<MyApp> {
           if (pathElements[1] == 'home') {
             return MaterialPageRoute<bool>(
               builder: (BuildContext context) => HomePage(),
+            );
+          }
+          if (pathElements[1] == 'add') {
+            return MaterialPageRoute<bool>(
+              builder: (BuildContext context) => AddPage(),
+            );
+          }
+          if (pathElements[1] == 'user') {
+            return MaterialPageRoute<bool>(
+              builder: (BuildContext context) => UserPage(),
             );
           }
           return null;
