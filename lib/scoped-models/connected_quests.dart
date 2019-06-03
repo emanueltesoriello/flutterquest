@@ -42,13 +42,13 @@ mixin UserModel on ConnectedQuestsModel {
     http.Response response;
     if (mode == AuthMode.Login) {
       response = await http.post(
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyA2BvAHZaRS0boByToyLr87NxxluOgvEFg',
+        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBsY0Dzh4383iEXf0TlW4q06hiA7nwVNm0',
         body: json.encode(authData),
         headers: {'Content-Type': 'application/json'},
       );
     } else {
       response = await http.post(
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyA2BvAHZaRS0boByToyLr87NxxluOgvEFg',
+        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBsY0Dzh4383iEXf0TlW4q06hiA7nwVNm0',
         body: json.encode(authData),
         headers: {'Content-Type': 'application/json'},
       );
