@@ -9,16 +9,16 @@ import 'package:rxdart/subjects.dart';
 import '../models/user.dart';
 import '../models/auth.dart';
 
-mixin ConnectedProductsModel on Model {
+mixin ConnectedQuestsModel on Model {
   User _authenticatedUser;
   bool _isLoading = false;
 }
 
-mixin ProductsModel on ConnectedProductsModel {
+mixin QuestsModel on ConnectedQuestsModel {
   
 }
 
-mixin UserModel on ConnectedProductsModel {
+mixin UserModel on ConnectedQuestsModel {
   Timer _authTimer;
   PublishSubject<bool> _userSubject = PublishSubject();
 
@@ -124,7 +124,7 @@ mixin UserModel on ConnectedProductsModel {
   }
 }
 
-mixin UtilityModel on ConnectedProductsModel {
+mixin UtilityModel on ConnectedQuestsModel {
   bool get isLoading {
     return _isLoading;
   }
